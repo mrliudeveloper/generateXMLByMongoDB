@@ -137,7 +137,7 @@ public class SystemController {
 	@RequestMapping("/createByMongo")
 	public String  createByMongo() {
 		SystemInfo systemInfo = new SystemInfo();
-		String substring = UUID.randomUUID().toString().substring(0, 8);
+		String systemId = UUID.randomUUID().toString().substring(0, 8);
 		
 		FlowData flowData=systemInfo.getFlowData();
 		Node node = new Node();
@@ -152,11 +152,11 @@ public class SystemController {
 		//写入mongodb
 		MongoCollection<Document> createCollection = mongoTemplate.getCollection(collectionName);
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("_id", substring);
+		hashMap.put("_id", systemId);
 		hashMap.put("systemInfo", json);
 		Document document=new Document(hashMap);
 		createCollection.insertOne(document);
 
-		return substring;
+		return systemId;
 	}	
 }
