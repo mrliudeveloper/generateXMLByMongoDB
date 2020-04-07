@@ -1,0 +1,9 @@
+#服务的端口号和mongodb的访问地址
+#带用户名和密码的访问地址：
+#mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
