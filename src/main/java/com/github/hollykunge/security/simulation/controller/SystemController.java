@@ -120,17 +120,18 @@ public class SystemController {
 			rootDocument = new org.jdom2.Document();
 			//生成xml文件
 			configbiz.generateDocument(systemId, modelName, rootDocument, systemInfo);
-			//XML格式化器
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.warn(e.getMessage());
 		}
+        //XML格式化器
 		XMLOutputter XMLOut = new XMLOutputter(configbiz.FormatXML());
         XMLOut.output(rootDocument,response.getOutputStream());
 	}
 	/**
 	 * 初始化一个文档，返回值为文档id
-	 * 注意:id生成策略可以自定义
+	 * 当前为从UUID中截取的前八位，可以根据需求自定义id生成策略
 	 */
 	@ResponseBody
 	@RequestMapping("/createByMongo")
