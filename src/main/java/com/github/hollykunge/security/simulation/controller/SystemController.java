@@ -79,7 +79,7 @@ public class SystemController {
 	//根据Id查询响应到前端
 	@ResponseBody
 	@RequestMapping("/retrieveByMongo")
-	public DataInfo retrieveByMongo(String systemId) throws IOException {
+	public DataInfo retrieveByMongo(String systemId) {
 		//String id="098aef08";		
 		Query query = Query.query(Criteria.where("_id").is(systemId));
         DataInfo dataInfo = null;
